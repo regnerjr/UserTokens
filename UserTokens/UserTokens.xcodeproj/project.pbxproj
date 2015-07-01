@@ -49,6 +49,7 @@
 		52BA90841B436ED700957FEC /* UserTokensUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserTokensUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BA90881B436ED700957FEC /* UserTokensUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTokensUITests.swift; sourceTree = "<group>"; };
 		52BA908A1B436ED700957FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52BA90961B436F7400957FEC /* Model.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Model.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 			children = (
 				52BA90661B436ED700957FEC /* AppDelegate.swift */,
 				52BA90681B436ED700957FEC /* MasterViewController.swift */,
+				52BA90961B436F7400957FEC /* Model.playground */,
 				52BA906A1B436ED700957FEC /* DetailViewController.swift */,
 				52BA906C1B436ED700957FEC /* Main.storyboard */,
 				52BA906F1B436ED700957FEC /* Assets.xcassets */,
