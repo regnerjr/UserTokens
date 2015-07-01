@@ -1,11 +1,3 @@
-//
-//  MasterViewController.swift
-//  UserTokens
-//
-//  Created by John Regner on 6/30/15.
-//  Copyright © 2015 HumanAPI-JohnRegner. All rights reserved.
-//
-
 import UIKit
 
 class MasterViewController: UITableViewController {
@@ -32,11 +24,6 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func insertNewObject(sender: AnyObject) {
         objects.insert(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -58,11 +45,6 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Table View
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
