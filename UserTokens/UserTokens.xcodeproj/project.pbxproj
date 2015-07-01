@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526C0D691B43B05E00092486 /* TokensUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D681B43B05E00092486 /* TokensUser.swift */; };
+		526C0D6B1B43B08600092486 /* TestTokensUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D6A1B43B08600092486 /* TestTokensUser.swift */; };
 		52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90661B436ED700957FEC /* AppDelegate.swift */; };
 		52BA90691B436ED700957FEC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90681B436ED700957FEC /* MasterViewController.swift */; };
 		52BA906B1B436ED700957FEC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA906A1B436ED700957FEC /* DetailViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		526C0D681B43B05E00092486 /* TokensUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokensUser.swift; sourceTree = "<group>"; };
+		526C0D6A1B43B08600092486 /* TestTokensUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTokensUser.swift; sourceTree = "<group>"; };
 		52BA90631B436ED700957FEC /* UserTokens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserTokens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BA90661B436ED700957FEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52BA90681B436ED700957FEC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		52BA90651B436ED700957FEC /* UserTokens */ = {
 			isa = PBXGroup;
 			children = (
+				526C0D681B43B05E00092486 /* TokensUser.swift */,
 				52BA90661B436ED700957FEC /* AppDelegate.swift */,
 				52BA90681B436ED700957FEC /* MasterViewController.swift */,
 				52BA90961B436F7400957FEC /* Model.playground */,
@@ -115,6 +120,7 @@
 		52BA907C1B436ED700957FEC /* UserTokensTests */ = {
 			isa = PBXGroup;
 			children = (
+				526C0D6A1B43B08600092486 /* TestTokensUser.swift */,
 				52BA907D1B436ED700957FEC /* UserTokensTests.swift */,
 				52BA907F1B436ED700957FEC /* Info.plist */,
 			);
@@ -262,6 +268,7 @@
 			files = (
 				52BA906B1B436ED700957FEC /* DetailViewController.swift in Sources */,
 				52BA90691B436ED700957FEC /* MasterViewController.swift in Sources */,
+				526C0D691B43B05E00092486 /* TokensUser.swift in Sources */,
 				52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526C0D6B1B43B08600092486 /* TestTokensUser.swift in Sources */,
 				52BA907E1B436ED700957FEC /* UserTokensTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +497,7 @@
 				52BA908F1B436ED700957FEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52BA90901B436ED700957FEC /* Build configuration list for PBXNativeTarget "UserTokensTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +506,7 @@
 				52BA90921B436ED700957FEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52BA90931B436ED700957FEC /* Build configuration list for PBXNativeTarget "UserTokensUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +515,7 @@
 				52BA90951B436ED700957FEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
