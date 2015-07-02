@@ -35,7 +35,7 @@ class NewUserViewController: UIViewController {
         let newUser = TokensUser(userName: name, password: pass)
         users.insert(newUser)
         //pass back the new user too!
-        presentingController?.objects = users
+        presentingController?.users = users
 
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -51,30 +51,39 @@ class NewUserViewController: UIViewController {
     }
 }
 
+func userNameIsUniqueIn(set: Set<TokensUser>, username: String) -> Bool {
+    guard !set.isEmpty else { return true } // any name is unique if collection is empty
+    return !set.map({ $0.userName == username }).reduce(false){$0 || $1}
+}
+
+func userNameIsEmail(username: NSString) -> Bool {
+    return username.localizedCaseInsensitiveContainsString("@") && username.localizedCaseInsensitiveContainsString(".")
+}
+
+func isPasswordValid(password: String?)->Bool{
+    guard let longer = password?.longerThanEightChars,
+        let hasDigit = (password as NSString?)?.containsDecimal else { return false }
+    return longer && hasDigit
+
+}
+
+func isUserNameValid(set: Set<TokensUser>, email: String?) -> Bool{
+    guard let emailString = email else { return false }
+    return userNameIsUniqueIn(set, username: emailString) && userNameIsEmail(emailString)
+}
 
 
 extension NewUserViewController: UITextFieldDelegate {
 
-    func userNameIsUniqueIn(set: Set<TokensUser>, username: String) -> Bool {
-        guard !set.isEmpty else { return true } // any name is unique if collection is empty
-        return !set.map({ $0.userName == username }).reduce(false){$0 || $1}
-    }
-
-    func userNameIsEmail(username: NSString) -> Bool {
-        return username.localizedCaseInsensitiveContainsString("@") && username.localizedCaseInsensitiveContainsString(".")
-    }
-
     func checkForUserNameAndPasswordConformance() -> Bool{
-        guard let longer = passwordTextField.text?.longerThanEightChars,
-              let hasDigit = (passwordTextField?.text as NSString?)?.containsDecimal,
-              let emailString = emailTextField.text
-        else { return false }
-        return longer && hasDigit && userNameIsUniqueIn(users, username: emailString) && userNameIsEmail(emailString)
+        let validPassword = isPasswordValid(passwordTextField.text)
+        let validEmail = isUserNameValid(users, email: emailTextField.text)
+        return validPassword && validEmail
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
         doneButton.enabled = checkForUserNameAndPasswordConformance()
+        textField.resignFirstResponder()
         return true
     }
 
