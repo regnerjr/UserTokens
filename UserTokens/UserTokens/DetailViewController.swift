@@ -10,7 +10,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
 
     @IBOutlet weak var tokensView: UITextView!
-    @IBOutlet weak var stack: UIStackView?
 
     @IBOutlet weak var editUserButton: UIBarButtonItem!
     weak var masterController: MasterViewController?
@@ -21,6 +20,8 @@ class DetailViewController: UIViewController {
         fmt.dateStyle = NSDateFormatterStyle.MediumStyle
         return fmt
     }()
+
+    var users: Set<TokensUser>?
 
     var detailItem: TokensUser? {
         willSet (user){
@@ -59,13 +60,16 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ManageTokens" {
-            let dest = segue.destinationViewController as! ManageTokensViewController
-            dest.user = detailItem
+            let destination = segue.destinationViewController as! ManageTokensViewController
+            destination.user = detailItem
+            destination.users = users
         } else if segue.identifier == "EditUser"{
-            let dest = segue.destinationViewController as! EditUserViewController
-            dest.user = detailItem
+            let destination = segue.destinationViewController as! EditUserViewController
+            destination.user = detailItem
+            destination.users = users
         }
     }
 
@@ -74,8 +78,14 @@ class DetailViewController: UIViewController {
         if let sourceViewController = sender.sourceViewController as? EditUserViewController {
         // Pull any data from the view controller which initiated the unwind segue.
             detailItem = sourceViewController.user
+            users = sourceViewController.users //pass updated values back up!
+            masterController?.users = sourceViewController.users
+            masterController?.tableView.reloadData()
         } else if let sourceViewController = sender.sourceViewController as? ManageTokensViewController {
             detailItem = sourceViewController.user
+            users = sourceViewController.users
+            masterController?.users = sourceViewController.users
+            masterController?.tableView.reloadData()
         }
     }
 
