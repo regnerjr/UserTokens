@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fTy-g5-7EH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New User View Controller-->
         <scene sceneID="sXS-6c-Vdd">
             <objects>
-                <viewController id="fTy-g5-7EH" sceneMemberID="viewController">
+                <viewController id="fTy-g5-7EH" customClass="NewUserViewController" customModule="UserTokens" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G5J-Fm-uzh"/>
                         <viewControllerLayoutGuide type="bottom" id="KDz-uK-adG"/>
@@ -16,18 +17,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-2D-Wzm">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-2D-Wzm">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3Cw-Oe-Bne"/>
-                                    <barButtonItem title="Done" id="WQz-vZ-Gry"/>
+                                    <barButtonItem title="Done" id="WQz-vZ-Gry">
+                                        <connections>
+                                            <action selector="done:" destination="fTy-g5-7EH" id="l18-u2-ld9"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kyw-a1-uRO">
+                                <rect key="frame" x="153" y="239" width="294" height="123"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I8E-GW-jLl">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="53"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-cO-KTW">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC1-Mv-86U">
+                                                        <rect key="frame" x="0.0" y="0.0" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyt-Mg-amT" customClass="EmailTextField" customModule="UserTokens" customModuleProvider="target">
+                                                        <rect key="frame" x="151" y="0.0" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="fTy-g5-7EH" id="DKP-A0-Qaw"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email must contain '@' and '.'" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF9-XI-WzI">
+                                                <rect key="frame" x="0.0" y="38" width="294" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="btl-o8-h0z">
+                                        <rect key="frame" x="0.0" y="73" width="294" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JVz-mE-9Ab">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9R-RS-P9t">
+                                                        <rect key="frame" x="0.0" y="0.0" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ou-Qe-KbF" customClass="PasswordTextField" customModule="UserTokens" customModuleProvider="target">
+                                                        <rect key="frame" x="151" y="0.0" width="143" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="fTy-g5-7EH" id="cn0-EY-ABK"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password must be longer than 8 chars and contain a number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihr-UV-jIv">
+                                                <rect key="frame" x="0.0" y="38" width="294" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error String" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cB-sA-iFG">
+                                <rect key="frame" x="256" y="408" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Kyw-a1-uRO" firstAttribute="centerY" secondItem="tBI-Hz-CBr" secondAttribute="centerY" id="1hf-T0-Yx3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kx8-2D-Wzm" secondAttribute="trailing" constant="-20" id="3bb-4Q-i3q"/>
+                            <constraint firstItem="Kyw-a1-uRO" firstAttribute="centerX" secondItem="tBI-Hz-CBr" secondAttribute="centerX" id="BPo-UO-hcz"/>
+                            <constraint firstItem="4cB-sA-iFG" firstAttribute="top" secondItem="Kyw-a1-uRO" secondAttribute="bottom" constant="46" id="Q2O-nQ-Ulk"/>
+                            <constraint firstItem="KDz-uK-adG" firstAttribute="top" secondItem="Kx8-2D-Wzm" secondAttribute="bottom" id="ZrT-DO-Q7T"/>
+                            <constraint firstItem="Kx8-2D-Wzm" firstAttribute="leading" secondItem="tBI-Hz-CBr" secondAttribute="leadingMargin" constant="-20" id="ZxY-E1-Mes"/>
+                            <constraint firstItem="4cB-sA-iFG" firstAttribute="centerX" secondItem="tBI-Hz-CBr" secondAttribute="centerX" id="nSF-Jf-arI"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="iMb-Ed-E9g" appends="YES" id="khq-Az-k1O"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="WQz-vZ-Gry" id="Ete-T7-u4g"/>
+                        <outlet property="emailTextField" destination="vyt-Mg-amT" id="Wj6-Dd-cK5"/>
+                        <outlet property="errorLabel" destination="4cB-sA-iFG" id="uVP-AO-7ZQ"/>
+                        <outlet property="passwordTextField" destination="9Ou-Qe-KbF" id="6bK-Og-g2G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SuB-Yj-Fs6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iMb-Ed-E9g">
+                    <pressTypeMask key="allowedPressTypes"/>
+                    <connections>
+                        <action selector="tapGesture:" destination="fTy-g5-7EH" id="2eS-te-M1g"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="833" y="556"/>
         </scene>

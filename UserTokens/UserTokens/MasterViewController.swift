@@ -1,5 +1,16 @@
 import UIKit
 
+extension Set {
+    subscript(position: Int) -> T {
+        var index = startIndex
+        for var i = 0; i < position; ++i {
+            index = index.successor()
+        }
+        guard index <= endIndex else { return self[endIndex] }
+        return self[index]
+    }
+}
+
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
@@ -27,8 +38,13 @@ class MasterViewController: UITableViewController {
     func insertNewObject(sender: AnyObject) {
 
         //display the Add new user sheet.
-        self.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        let newUserForm = UIStoryboard(name: "NewUser", bundle: nil)
+        self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        let newUserForm = UIStoryboard(name: "NewUser", bundle: nil).instantiateInitialViewController() as! NewUserViewController
+
+
+        self.presentViewController(newUserForm, animated: true){
+            [weak self] in self?.tableView.reloadData()
+        } //relaad data when finished.
 
     }
 
@@ -37,7 +53,8 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
+
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -54,8 +71,8 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row]
+        cell.textLabel!.text = object.userName
         return cell
     }
 
@@ -66,7 +83,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
+            objects.remove(objects[indexPath.row])
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
