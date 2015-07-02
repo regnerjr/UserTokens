@@ -59,15 +59,25 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @IBAction func manageTokes(sender: AnyObject) {
-        print("Manage Tokens Pressed, This will load another View Modally to add and remove tokens from a user.")
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ManageTokens" {
+            let dest = segue.destinationViewController as! ManageTokensViewController
+            dest.user = detailItem
+        } else if segue.identifier == "EditUser"{
+            let dest = segue.destinationViewController as! EditUserViewController
+            dest.user = detailItem
+        }
     }
 
-    @IBAction func editUser(sender: AnyObject) {
-        // push some new UI To edit the user
-        print("Pusing some new VC to edit the UserDetails")
+    @IBAction func unwindToDetailView(sender: UIStoryboardSegue)
+    {
+        if let sourceViewController = sender.sourceViewController as? EditUserViewController {
+        // Pull any data from the view controller which initiated the unwind segue.
+            detailItem = sourceViewController.user
+        } else if let sourceViewController = sender.sourceViewController as? ManageTokensViewController {
+            detailItem = sourceViewController.user
+        }
     }
-
 
 }
 

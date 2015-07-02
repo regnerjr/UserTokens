@@ -6,6 +6,9 @@ enum UserPasswordErrors: String {
     case passwordHasNoDigit = "Password must contain a Number"
 }
 
+class EmailTextField: UITextField {}
+class PasswordTextField: UITextField {}
+
 class NewUserViewController: UIViewController {
 
     @IBOutlet weak var errorLabel: UILabel!
@@ -61,7 +64,6 @@ extension NewUserViewController: UITextFieldDelegate {
         return username.localizedCaseInsensitiveContainsString("@") && username.localizedCaseInsensitiveContainsString(".")
     }
 
-
     func checkForUserNameAndPasswordConformance() -> Bool{
         guard let longer = passwordTextField.text?.longerThanEightChars,
               let hasDigit = (passwordTextField?.text as NSString?)?.containsDecimal,
@@ -71,18 +73,9 @@ extension NewUserViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("Run some code when the enter button is pressed in \(textField.dynamicType)")
         textField.resignFirstResponder()
         doneButton.enabled = checkForUserNameAndPasswordConformance()
         return true
     }
-
-}
-
-class EmailTextField: UITextField {
-
-}
-
-class PasswordTextField: UITextField {
 
 }

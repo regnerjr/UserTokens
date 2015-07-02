@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -134,7 +135,7 @@
                                                 <rect key="frame" x="69" y="0.0" width="103" height="30"/>
                                                 <state key="normal" title="ManageTokens"/>
                                                 <connections>
-                                                    <action selector="manageTokes:" destination="JEX-9P-axG" eventType="touchUpInside" id="PAV-Rx-v8f"/>
+                                                    <segue destination="Rhs-aX-PL9" kind="presentation" identifier="ManageTokens" id="7BB-Pe-WuV"/>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72c-qs-84e">
@@ -159,6 +160,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Edit User" id="zcl-y0-ESK">
                             <connections>
                                 <action selector="editUser:" destination="JEX-9P-axG" id="dzE-yh-K8U"/>
+                                <segue destination="67t-5g-Eou" kind="presentation" identifier="EditUser" id="f1X-Ww-AXs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -248,6 +250,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
+        </scene>
+        <!--Edit User View Controller-->
+        <scene sceneID="lYm-VG-636">
+            <objects>
+                <viewController storyboardIdentifier="EditUser" useStoryboardIdentifierAsRestorationIdentifier="YES" id="67t-5g-Eou" customClass="EditUserViewController" customModule="UserTokens" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kwA-Qy-Hrd"/>
+                        <viewControllerLayoutGuide type="bottom" id="B86-mk-sVO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b71-P8-0sv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit UserView Controller" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-hX-n7D">
+                                <rect key="frame" x="207" y="289" width="187" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC5-si-yLw">
+                                <rect key="frame" x="260" y="124" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWk-fh-rzn">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XMO-4n-HoE"/>
+                                    <barButtonItem systemItem="done" id="hxq-vA-ZlJ">
+                                        <connections>
+                                            <action selector="done:" destination="67t-5g-Eou" id="Bqz-o8-uRa"/>
+                                            <segue destination="g4t-tR-yz1" kind="unwind" unwindAction="unwindToDetailView:" id="4gv-OI-uPe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JC5-si-yLw" firstAttribute="centerX" secondItem="b71-P8-0sv" secondAttribute="centerX" id="9kM-mf-vWF"/>
+                            <constraint firstItem="xc1-hX-n7D" firstAttribute="centerY" secondItem="b71-P8-0sv" secondAttribute="centerY" id="EIl-Wv-uLM"/>
+                            <constraint firstItem="JC5-si-yLw" firstAttribute="top" secondItem="kwA-Qy-Hrd" secondAttribute="bottom" constant="104" id="Kz0-E4-KXY"/>
+                            <constraint firstItem="xc1-hX-n7D" firstAttribute="centerX" secondItem="b71-P8-0sv" secondAttribute="centerX" id="Plk-Oh-voC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KWk-fh-rzn" secondAttribute="trailing" constant="-20" id="Zeu-Xs-2EV"/>
+                            <constraint firstItem="B86-mk-sVO" firstAttribute="top" secondItem="KWk-fh-rzn" secondAttribute="bottom" id="kEC-yl-OAX"/>
+                            <constraint firstItem="KWk-fh-rzn" firstAttribute="leading" secondItem="b71-P8-0sv" secondAttribute="leadingMargin" constant="-20" id="zxU-f5-6iZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userNameLabel" destination="JC5-si-yLw" id="6JH-6l-VWw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rkp-pl-ff4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="g4t-tR-yz1" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="129"/>
+        </scene>
+        <!--Manage Tokens View Controller-->
+        <scene sceneID="PI4-yL-b6A">
+            <objects>
+                <viewController storyboardIdentifier="ManageTokens" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rhs-aX-PL9" customClass="ManageTokensViewController" customModule="UserTokens" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WcT-uk-XqY"/>
+                        <viewControllerLayoutGuide type="bottom" id="BUd-oe-COA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GAh-0t-hD4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage Tokens VC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQW-WW-xNq">
+                                <rect key="frame" x="226" y="290" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wI0-Y4-EY2">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bZ4-qF-MVy"/>
+                                    <barButtonItem systemItem="done" id="m5S-Bs-FYj">
+                                        <connections>
+                                            <action selector="done:" destination="Rhs-aX-PL9" id="Gd3-tb-g06"/>
+                                            <segue destination="fZS-e4-6dW" kind="unwind" unwindAction="unwindToDetailView:" id="oi0-2x-ciU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayq-Xa-4Zw">
+                                <rect key="frame" x="279" y="145" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BUd-oe-COA" firstAttribute="top" secondItem="wI0-Y4-EY2" secondAttribute="bottom" id="EEY-lh-IAJ"/>
+                            <constraint firstItem="zQW-WW-xNq" firstAttribute="centerX" secondItem="GAh-0t-hD4" secondAttribute="centerX" id="NSx-Kr-YCK"/>
+                            <constraint firstItem="ayq-Xa-4Zw" firstAttribute="centerX" secondItem="GAh-0t-hD4" secondAttribute="centerX" id="Qg0-U0-Fcx"/>
+                            <constraint firstItem="ayq-Xa-4Zw" firstAttribute="top" secondItem="WcT-uk-XqY" secondAttribute="bottom" constant="125" id="fba-nU-7hV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wI0-Y4-EY2" secondAttribute="trailing" constant="-20" id="r09-8D-seF"/>
+                            <constraint firstItem="zQW-WW-xNq" firstAttribute="centerY" secondItem="GAh-0t-hD4" secondAttribute="centerY" id="tze-eg-HzF"/>
+                            <constraint firstItem="wI0-Y4-EY2" firstAttribute="leading" secondItem="GAh-0t-hD4" secondAttribute="leadingMargin" constant="-20" id="vwH-Wv-HRt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userNameLabel" destination="ayq-Xa-4Zw" id="vaE-Re-gvm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXo-9I-jrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fZS-e4-6dW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="899"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
