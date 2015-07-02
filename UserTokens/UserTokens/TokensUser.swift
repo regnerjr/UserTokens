@@ -2,8 +2,8 @@ import Foundation
 
 struct TokensUser: Hashable {
     let id: NSUUID
-    let userName: String
-    let password: String
+    var userName: String
+    var password: String
     var tokens : [NSUUID]
     let dateCreated = NSDate()
     var lastUpdated: NSDate
@@ -26,6 +26,7 @@ struct TokensUser: Hashable {
         return "\(id) \(userName)".hashValue
     }
 }
+
 extension TokensUser: Equatable {}
 func ==(lhs: TokensUser, rhs: TokensUser) -> Bool {
     return lhs.id == rhs.id
