@@ -13,10 +13,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="delegate" destination="0sW-C2-lL0" id="WFt-RM-2Ch"/>
                         <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="tsl-Nk-0bq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
+                <customObject id="0sW-C2-lL0" customClass="NavDelegate" customModule="UserTokens" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
@@ -46,14 +48,23 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL4-UJ-kbM">
                                                         <rect key="frame" x="127" y="0.0" width="114" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="178" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="21"/>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hBG-tn-k7R">
                                                 <rect key="frame" x="0.0" y="33" width="241" height="21"/>
@@ -63,14 +74,23 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ace-mv-m6x">
                                                         <rect key="frame" x="127" y="0.0" width="114" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="178" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="33" width="344" height="21"/>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sul-uy-9Hv">
                                                 <rect key="frame" x="0.0" y="66" width="241" height="21"/>
@@ -80,14 +100,23 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rs9-vi-IpV">
                                                         <rect key="frame" x="127" y="0.0" width="114" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="178" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="66" width="344" height="21"/>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ssi-6w-asE">
                                                 <rect key="frame" x="0.0" y="99" width="241" height="21"/>
@@ -97,14 +126,23 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6B-pM-BsJ">
                                                         <rect key="frame" x="127" y="0.0" width="114" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="178" y="0.0" width="166" height="21"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="99" width="344" height="21"/>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yIv-yq-ULS">
                                                 <rect key="frame" x="0.0" y="132" width="241" height="21"/>
@@ -123,10 +161,19 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                            <rect key="frame" x="24" y="0.0" width="320" height="21"/>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="132" width="344" height="21"/>
+                                                </variation>
                                             </stackView>
                                         </subviews>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="153"/>
+                                        </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-La-mxn">
                                         <rect key="frame" x="0.0" y="173" width="241" height="158"/>
@@ -134,6 +181,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huI-Qs-MsB">
                                                 <rect key="frame" x="69" y="0.0" width="103" height="30"/>
                                                 <state key="normal" title="ManageTokens"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="121" y="0.0" width="103" height="30"/>
+                                                </variation>
                                                 <connections>
                                                     <segue destination="Rhs-aX-PL9" kind="presentation" identifier="ManageTokens" id="7BB-Pe-WuV"/>
                                                 </connections>
@@ -143,8 +193,14 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="52" y="30" width="241" height="128"/>
+                                                </variation>
                                             </textView>
                                         </subviews>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="173" width="344" height="158"/>
+                                        </variation>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -152,8 +208,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qW5-UC-nUl" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="IhA-3Q-5pP"/>
+                            <constraint firstItem="qW5-UC-nUl" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="8" id="aU3-fP-NMD"/>
                             <constraint firstItem="qW5-UC-nUl" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="kmC-Uq-a9c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qW5-UC-nUl" secondAttribute="trailing" constant="8" id="z4O-Ui-410"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aU3-fP-NMD"/>
+                                <exclude reference="z4O-Ui-410"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="aU3-fP-NMD"/>
+                                <include reference="z4O-Ui-410"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="User Details" id="mOI-FS-AaM">
@@ -170,7 +240,6 @@
                         <outlet property="emailLabel" destination="iL4-UJ-kbM" id="s9w-YH-Cx3"/>
                         <outlet property="idLabel" destination="Fac-gS-mRK" id="mG1-hM-R2y"/>
                         <outlet property="passwordLabel" destination="ace-mv-m6x" id="SaO-uf-TzU"/>
-                        <outlet property="stack" destination="qW5-UC-nUl" id="zpY-4G-llC"/>
                         <outlet property="tokensView" destination="72c-qs-84e" id="A8g-kZ-Gd6"/>
                         <outlet property="updatedlabel" destination="a6B-pM-BsJ" id="gb1-EW-pTn"/>
                     </connections>
@@ -263,48 +332,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit UserView Controller" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-hX-n7D">
-                                <rect key="frame" x="207" y="289" width="187" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC5-si-yLw">
-                                <rect key="frame" x="260" y="124" width="81" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWk-fh-rzn">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XMO-4n-HoE"/>
                                     <barButtonItem systemItem="done" id="hxq-vA-ZlJ">
                                         <connections>
-                                            <action selector="done:" destination="67t-5g-Eou" id="Bqz-o8-uRa"/>
                                             <segue destination="g4t-tR-yz1" kind="unwind" unwindAction="unwindToDetailView:" id="4gv-OI-uPe"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="S4a-PP-Y6m">
+                                <rect key="frame" x="272" y="231" width="57" height="138"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ohy-6y-bVP">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGD-Ra-Ujj">
+                                                <rect key="frame" x="0.0" y="0.0" width="14" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyY-Eo-yvd">
+                                                <rect key="frame" x="26" y="0.0" width="31" height="30"/>
+                                                <state key="normal" title="New"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="29" width="344" height="30"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="newID:" destination="67t-5g-Eou" eventType="touchUpInside" id="rW3-QI-qqt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="widthClass=compact" axis="vertical"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES" spacing="8">
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="59"/>
+                                        </variation>
+                                    </stackView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SWr-BI-1kr">
+                                        <rect key="frame" x="0.0" y="54" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="250" constant="150" id="U2Q-Dl-MvP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="67t-5g-Eou" id="SAj-JS-Tfw"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YML-rH-ayo">
+                                        <rect key="frame" x="0.0" y="108" width="57" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="137" width="344" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="delegate" destination="67t-5g-Eou" id="bxC-rI-N1u"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="28" y="331" width="344" height="167"/>
+                                </variation>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="JC5-si-yLw" firstAttribute="centerX" secondItem="b71-P8-0sv" secondAttribute="centerX" id="9kM-mf-vWF"/>
-                            <constraint firstItem="xc1-hX-n7D" firstAttribute="centerY" secondItem="b71-P8-0sv" secondAttribute="centerY" id="EIl-Wv-uLM"/>
-                            <constraint firstItem="JC5-si-yLw" firstAttribute="top" secondItem="kwA-Qy-Hrd" secondAttribute="bottom" constant="104" id="Kz0-E4-KXY"/>
-                            <constraint firstItem="xc1-hX-n7D" firstAttribute="centerX" secondItem="b71-P8-0sv" secondAttribute="centerX" id="Plk-Oh-voC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S4a-PP-Y6m" secondAttribute="trailing" constant="8" id="5yf-Te-Dt1"/>
+                            <constraint firstItem="S4a-PP-Y6m" firstAttribute="leading" secondItem="b71-P8-0sv" secondAttribute="leadingMargin" constant="8" id="JJY-sC-hRg"/>
+                            <constraint firstItem="S4a-PP-Y6m" firstAttribute="centerX" secondItem="b71-P8-0sv" secondAttribute="centerX" id="QPc-vG-2Pm"/>
+                            <constraint firstItem="S4a-PP-Y6m" firstAttribute="centerY" secondItem="b71-P8-0sv" secondAttribute="centerY" id="Vuu-AC-aV8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KWk-fh-rzn" secondAttribute="trailing" constant="-20" id="Zeu-Xs-2EV"/>
                             <constraint firstItem="B86-mk-sVO" firstAttribute="top" secondItem="KWk-fh-rzn" secondAttribute="bottom" id="kEC-yl-OAX"/>
                             <constraint firstItem="KWk-fh-rzn" firstAttribute="leading" secondItem="b71-P8-0sv" secondAttribute="leadingMargin" constant="-20" id="zxU-f5-6iZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5yf-Te-Dt1"/>
+                                <exclude reference="JJY-sC-hRg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="5yf-Te-Dt1"/>
+                                <include reference="JJY-sC-hRg"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vnP-Ji-S1l" appends="YES" id="qUB-4l-iIr"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="userNameLabel" destination="JC5-si-yLw" id="6JH-6l-VWw"/>
+                        <outlet property="doneButton" destination="hxq-vA-ZlJ" id="Du2-m7-FVS"/>
+                        <outlet property="idLabel" destination="hGD-Ra-Ujj" id="lsh-iP-yWl"/>
+                        <outlet property="passwordField" destination="YML-rH-ayo" id="yaR-0K-Rpe"/>
+                        <outlet property="userNameField" destination="SWr-BI-1kr" id="FT6-5y-7xT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rkp-pl-ff4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="g4t-tR-yz1" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="vnP-Ji-S1l">
+                    <pressTypeMask key="allowedPressTypes"/>
+                    <connections>
+                        <action selector="backgroundTapped:" destination="67t-5g-Eou" id="mJM-LY-NzJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1489" y="129"/>
         </scene>

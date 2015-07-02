@@ -14,6 +14,7 @@
 		526C0D711B44D2B100092486 /* String+NSStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D701B44D2B100092486 /* String+NSStringExtensions.swift */; };
 		526C0D751B44E54800092486 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D741B44E54800092486 /* EditUserViewController.swift */; };
 		526C0D771B44E9D100092486 /* ManageTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D761B44E9D100092486 /* ManageTokensViewController.swift */; };
+		526C0D791B45151400092486 /* NavDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D781B45151400092486 /* NavDelegate.swift */; };
 		52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90661B436ED700957FEC /* AppDelegate.swift */; };
 		52BA90691B436ED700957FEC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90681B436ED700957FEC /* MasterViewController.swift */; };
 		52BA906B1B436ED700957FEC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA906A1B436ED700957FEC /* DetailViewController.swift */; };
@@ -49,6 +50,7 @@
 		526C0D701B44D2B100092486 /* String+NSStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSStringExtensions.swift"; sourceTree = "<group>"; };
 		526C0D741B44E54800092486 /* EditUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		526C0D761B44E9D100092486 /* ManageTokensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageTokensViewController.swift; sourceTree = "<group>"; };
+		526C0D781B45151400092486 /* NavDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavDelegate.swift; sourceTree = "<group>"; };
 		52BA90631B436ED700957FEC /* UserTokens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserTokens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BA90661B436ED700957FEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52BA90681B436ED700957FEC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				52BA90961B436F7400957FEC /* Model.playground */,
 				52BA906A1B436ED700957FEC /* DetailViewController.swift */,
 				52BA906C1B436ED700957FEC /* Main.storyboard */,
+				526C0D781B45151400092486 /* NavDelegate.swift */,
 				52BA906F1B436ED700957FEC /* Assets.xcassets */,
 				52BA90711B436ED700957FEC /* LaunchScreen.storyboard */,
 				52BA90741B436ED700957FEC /* Info.plist */,
@@ -289,6 +292,7 @@
 				526C0D691B43B05E00092486 /* TokensUser.swift in Sources */,
 				526C0D751B44E54800092486 /* EditUserViewController.swift in Sources */,
 				526C0D771B44E9D100092486 /* ManageTokensViewController.swift in Sources */,
+				526C0D791B45151400092486 /* NavDelegate.swift in Sources */,
 				52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
