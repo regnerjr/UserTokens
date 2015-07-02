@@ -3,7 +3,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects = Set<TokensUser>()
 
 
     override func viewDidLoad() {
@@ -25,9 +25,11 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+
+        //display the Add new user sheet.
+        self.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        let newUserForm = UIStoryboard(name: "NewUser", bundle: nil)
+
     }
 
     // MARK: - Segues
