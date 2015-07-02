@@ -3,11 +3,13 @@ import UIKit
 extension Set {
     subscript(position: Int) -> T {
         var index = startIndex
-        for var i = 0; i < position; ++i {
-            index = index.successor()
+        let dist = distance(startIndex, endIndex)
+        if dist < position {
+            for var i = 0; i < position; ++i {
+                index = index.successor()
+            }
         }
-        guard index <= endIndex else { return self[endIndex] }
-        return self[index]
+        return self[startIndex]
     }
 }
 
@@ -44,13 +46,13 @@ class MasterViewController: UITableViewController {
     func insertNewObject(sender: AnyObject) {
 
         //display the Add new user sheet.
-        self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         let newUserForm = UIStoryboard(name: "NewUser", bundle: nil).instantiateInitialViewController() as! NewUserViewController
 
         newUserForm.users = users
         newUserForm.presentingController = self
 
-        self.presentViewController(newUserForm, animated: true, completion: nil)
+        presentViewController(newUserForm, animated: true, completion: nil)
 
     }
 
