@@ -14,7 +14,7 @@ extension Set {
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = Set<TokensUser>()
+    var users = Set<TokensUser>()
 
     var hasSelection : Bool {
         if tableView.indexPathsForSelectedRows == nil { return false }
@@ -31,15 +31,14 @@ class MasterViewController: UITableViewController {
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            detailViewController?.masterController = self
         }
     }
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         self.tableView.reloadData()
-        super.viewWillAppear(animated)
         detailViewController?.configureView(nil)
+        super.viewWillAppear(animated)
     }
 
     func insertNewObject(sender: AnyObject) {
@@ -48,7 +47,7 @@ class MasterViewController: UITableViewController {
         self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         let newUserForm = UIStoryboard(name: "NewUser", bundle: nil).instantiateInitialViewController() as! NewUserViewController
 
-        newUserForm.users = objects
+        newUserForm.users = users
         newUserForm.presentingController = self
 
         self.presentViewController(newUserForm, animated: true, completion: nil)
@@ -60,25 +59,29 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row]
+                let object = users[indexPath.row]
 
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
+                controller.users = users
+                controller.masterController = self
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
 
+    
+
     // MARK: - Table View
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return users.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row]
+        let object = users[indexPath.row]
         cell.textLabel!.text = object.userName
         return cell
     }
@@ -90,7 +93,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.remove(objects[indexPath.row])
+            users.remove(users[indexPath.row])
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -98,8 +101,9 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let user = objects[indexPath.row]
+        let user = users[indexPath.row]
         detailViewController?.configureView(user)
+        detailViewController?.users = users
     }
 
 }
