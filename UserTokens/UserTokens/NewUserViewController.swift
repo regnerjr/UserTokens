@@ -18,6 +18,8 @@ class NewUserViewController: UIViewController {
         didSet{ /*unhide and set error string if applicable*/ }
     }
 
+    weak var presentingController: MasterViewController?
+
     var users: Set<TokensUser>!
 
     override func viewDidLoad() {
@@ -26,10 +28,16 @@ class NewUserViewController: UIViewController {
     }
 
     @IBAction func done(sender: UIBarButtonItem) {
+        guard let name = emailTextField.text, let pass = passwordTextField.text else { return }
+        let newUser = TokensUser(userName: name, password: pass)
+        users.insert(newUser)
         //pass back the new user too!
-        let pres = presentingViewController as? MasterViewController
-        pres?.objects = users
+        presentingController?.objects = users
 
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    @IBAction func cancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -40,38 +48,26 @@ class NewUserViewController: UIViewController {
     }
 }
 
-extension NSString {
-    var containsDecimal: Bool {
-        let decimals = NSCharacterSet.decimalDigitCharacterSet()
-        let parts = self.componentsSeparatedByCharactersInSet(decimals)
-        return parts.count > 1
-    }
-}
-
-extension String {
-    var longerThanEightChars: Bool {
-        return self.utf16.count > 8
-    }
-}
 
 
 extension NewUserViewController: UITextFieldDelegate {
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        print("Editing began in \(textField.dynamicType)")
+    func userNameIsUniqueIn(set: Set<TokensUser>, username: String) -> Bool {
+        guard !set.isEmpty else { return true } // any name is unique if collection is empty
+        return !set.map({ $0.userName == username }).reduce(false){$0 || $1}
     }
-    func textFieldDidEndEditing(textField: UITextField) {
-        print("Editing is ending in \(textField.dynamicType)")
+
+    func userNameIsEmail(username: NSString) -> Bool {
+        return username.localizedCaseInsensitiveContainsString("@") && username.localizedCaseInsensitiveContainsString(".")
     }
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        print("Called for every key stroke user this to enable the done button")
-        return true
-    }
+
 
     func checkForUserNameAndPasswordConformance() -> Bool{
         guard let longer = passwordTextField.text?.longerThanEightChars,
-              let hasDigit = (passwordTextField?.text as NSString?)?.containsDecimal  else { return false }
-        return longer && hasDigit
+              let hasDigit = (passwordTextField?.text as NSString?)?.containsDecimal,
+              let emailString = emailTextField.text
+        else { return false }
+        return longer && hasDigit && userNameIsUniqueIn(users, username: emailString) && userNameIsEmail(emailString)
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {

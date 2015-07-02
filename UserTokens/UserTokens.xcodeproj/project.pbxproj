@@ -11,6 +11,7 @@
 		526C0D6B1B43B08600092486 /* TestTokensUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D6A1B43B08600092486 /* TestTokensUser.swift */; };
 		526C0D6D1B44BCB700092486 /* NewUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526C0D6C1B44BCB700092486 /* NewUser.storyboard */; };
 		526C0D6F1B44BCF800092486 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D6E1B44BCF800092486 /* NewUserViewController.swift */; };
+		526C0D711B44D2B100092486 /* String+NSStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D701B44D2B100092486 /* String+NSStringExtensions.swift */; };
 		52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90661B436ED700957FEC /* AppDelegate.swift */; };
 		52BA90691B436ED700957FEC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90681B436ED700957FEC /* MasterViewController.swift */; };
 		52BA906B1B436ED700957FEC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA906A1B436ED700957FEC /* DetailViewController.swift */; };
@@ -43,6 +44,7 @@
 		526C0D6A1B43B08600092486 /* TestTokensUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTokensUser.swift; sourceTree = "<group>"; };
 		526C0D6C1B44BCB700092486 /* NewUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewUser.storyboard; sourceTree = "<group>"; };
 		526C0D6E1B44BCF800092486 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		526C0D701B44D2B100092486 /* String+NSStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSStringExtensions.swift"; sourceTree = "<group>"; };
 		52BA90631B436ED700957FEC /* UserTokens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserTokens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BA90661B436ED700957FEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52BA90681B436ED700957FEC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		52BA90651B436ED700957FEC /* UserTokens */ = {
 			isa = PBXGroup;
 			children = (
+				526C0D701B44D2B100092486 /* String+NSStringExtensions.swift */,
 				526C0D681B43B05E00092486 /* TokensUser.swift */,
 				52BA90661B436ED700957FEC /* AppDelegate.swift */,
 				52BA90681B436ED700957FEC /* MasterViewController.swift */,
@@ -275,6 +278,7 @@
 			files = (
 				52BA906B1B436ED700957FEC /* DetailViewController.swift in Sources */,
 				52BA90691B436ED700957FEC /* MasterViewController.swift in Sources */,
+				526C0D711B44D2B100092486 /* String+NSStringExtensions.swift in Sources */,
 				526C0D6F1B44BCF800092486 /* NewUserViewController.swift in Sources */,
 				526C0D691B43B05E00092486 /* TokensUser.swift in Sources */,
 				52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */,

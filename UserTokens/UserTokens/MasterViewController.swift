@@ -16,6 +16,10 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = Set<TokensUser>()
 
+    var hasSelection : Bool {
+        if tableView.indexPathsForSelectedRows == nil { return false }
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +31,15 @@ class MasterViewController: UITableViewController {
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            detailViewController?.masterController = self
         }
     }
 
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        self.tableView.reloadData()
         super.viewWillAppear(animated)
+        detailViewController?.configureView(nil)
     }
 
     func insertNewObject(sender: AnyObject) {
@@ -41,10 +48,10 @@ class MasterViewController: UITableViewController {
         self.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         let newUserForm = UIStoryboard(name: "NewUser", bundle: nil).instantiateInitialViewController() as! NewUserViewController
 
+        newUserForm.users = objects
+        newUserForm.presentingController = self
 
-        self.presentViewController(newUserForm, animated: true){
-            [weak self] in self?.tableView.reloadData()
-        } //relaad data when finished.
+        self.presentViewController(newUserForm, animated: true, completion: nil)
 
     }
 
@@ -90,6 +97,10 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = objects[indexPath.row]
+        detailViewController?.configureView(user)
+    }
 
 }
 

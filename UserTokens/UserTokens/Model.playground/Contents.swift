@@ -11,12 +11,6 @@ extension NSUUID: CustomDebugStringConvertible {
     }
 }
 
-
-protocol User {
-    var id: NSUUID {get}
-    var userName: String {get}
-}
-
 struct TokensUser: Hashable {
     let id: NSUUID
     let userName: String
