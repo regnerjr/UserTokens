@@ -26,6 +26,7 @@ class ManageTokensViewController: UIViewController, UITableViewDataSource, UITab
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    //MARK: - TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return user.tokens.count
     }
@@ -34,6 +35,20 @@ class ManageTokensViewController: UIViewController, UITableViewDataSource, UITab
         let cell = tableView.dequeueReusableCellWithIdentifier("TokenCell", forIndexPath: indexPath)
         cell.textLabel?.text = user.tokens[indexPath.row].UUIDString
         return cell
+    }
+
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            user.tokens.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+
     }
 
 }
