@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
         return fmt
     }()
 
-    var users: Set<TokensUser>?
+    var users: NSMutableArray? = nil
 
     var detailItem: TokensUser? {
         willSet (user){
@@ -34,8 +34,8 @@ class DetailViewController: UIViewController {
                 view?.hidden = false
                 editUserButton.enabled = true
             }
-            emailLabel.text = user?.userName
-            passwordLabel.text = user?.password
+            emailLabel.text = user?.userName.description
+            passwordLabel.text = user?.password.description
             idLabel.text = user?.id.UUIDString
 
             if user?.tokens.count > 0 {
@@ -65,7 +65,6 @@ class DetailViewController: UIViewController {
         if segue.identifier == "ManageTokens" {
             let destination = segue.destinationViewController as! ManageTokensViewController
             destination.user = detailItem
-            destination.users = users
         } else if segue.identifier == "EditUser"{
             let destination = segue.destinationViewController as! EditUserViewController
             destination.user = detailItem
@@ -83,8 +82,7 @@ class DetailViewController: UIViewController {
             masterController?.tableView.reloadData()
         } else if let sourceViewController = sender.sourceViewController as? ManageTokensViewController {
             detailItem = sourceViewController.user
-            users = sourceViewController.users
-            masterController?.users = sourceViewController.users
+
             masterController?.tableView.reloadData()
         }
     }

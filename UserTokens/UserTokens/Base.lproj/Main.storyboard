@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -344,7 +345,7 @@
                                 </items>
                             </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="S4a-PP-Y6m">
-                                <rect key="frame" x="272" y="231" width="57" height="138"/>
+                                <rect key="frame" x="272" y="129" width="57" height="138"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ohy-6y-bVP">
                                         <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
@@ -408,7 +409,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="S4a-PP-Y6m" secondAttribute="trailing" constant="8" id="5yf-Te-Dt1"/>
                             <constraint firstItem="S4a-PP-Y6m" firstAttribute="leading" secondItem="b71-P8-0sv" secondAttribute="leadingMargin" constant="8" id="JJY-sC-hRg"/>
                             <constraint firstItem="S4a-PP-Y6m" firstAttribute="centerX" secondItem="b71-P8-0sv" secondAttribute="centerX" id="QPc-vG-2Pm"/>
-                            <constraint firstItem="S4a-PP-Y6m" firstAttribute="centerY" secondItem="b71-P8-0sv" secondAttribute="centerY" id="Vuu-AC-aV8"/>
+                            <constraint firstItem="S4a-PP-Y6m" firstAttribute="centerY" secondItem="b71-P8-0sv" secondAttribute="centerY" multiplier="0.66" id="Vuu-AC-aV8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KWk-fh-rzn" secondAttribute="trailing" constant="-20" id="Zeu-Xs-2EV"/>
                             <constraint firstItem="B86-mk-sVO" firstAttribute="top" secondItem="KWk-fh-rzn" secondAttribute="bottom" id="kEC-yl-OAX"/>
                             <constraint firstItem="KWk-fh-rzn" firstAttribute="leading" secondItem="b71-P8-0sv" secondAttribute="leadingMargin" constant="-20" id="zxU-f5-6iZ"/>

@@ -23,7 +23,7 @@ class NewUserViewController: UIViewController {
 
     weak var presentingController: MasterViewController?
 
-    var users: Set<TokensUser>!
+    var users: NSMutableArray! //to be filled in before this VC is presented
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class NewUserViewController: UIViewController {
         guard let name = emailTextField.text, let pass = passwordTextField.text else { return }
         let newUser = TokensUser(userName: name, password: pass)
 
-        users.insert(newUser)
+        users.addObject(newUser)
         //pass back the new user too!
         presentingController?.users = users
 
@@ -52,9 +52,19 @@ class NewUserViewController: UIViewController {
     }
 }
 
-func userNameIsUniqueIn(set: Set<TokensUser>, username: String) -> Bool {
-    guard !set.isEmpty else { return true } // any name is unique if collection is empty
-    return !set.map({ $0.userName == username }).reduce(false){$0 || $1}
+func userNameIsUniqueIn(set: NSArray, username: String) -> Bool {
+    if set.count == 0 {
+        return true // is unique
+    }
+    let matches = set.indexesOfObjectsPassingTest({
+        obj, index, stop in
+        let user = obj as! TokensUser
+        if user.userName == username {
+            return true
+        }
+        return false
+    })
+    return matches.count == 0
 }
 
 func userNameIsEmail(username: NSString) -> Bool {
@@ -68,7 +78,7 @@ func isPasswordValid(password: String?)->Bool{
 
 }
 
-func isUserNameValid(set: Set<TokensUser>, email: String?) -> Bool{
+func isUserNameValid(set: NSArray, email: String?) -> Bool{
     guard let emailString = email else { return false }
     return userNameIsUniqueIn(set, username: emailString) && userNameIsEmail(emailString)
 }

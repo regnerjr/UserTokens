@@ -17,7 +17,19 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     // TODO: fill this from disk if file exists.
-    var users = Set<TokensUser>() //start off with an empty set for new
+    /// An array to store the TokensUsers in
+    lazy var users: NSMutableArray = {
+        //attempt to restore from archive
+        if let restoredData = NSKeyedUnarchiver.unarchiveObjectWithFile(Archive.path!) as? NSMutableArray {
+            return restoredData
+        }
+        return NSMutableArray()
+    }()
+
+    func archive(){
+        print("Archiving Users \(users):\(users.dynamicType) to path \(Archive.path!) ")
+        NSKeyedArchiver.archiveRootObject(users, toFile: Archive.path!)
+    }
 
     var hasSelection : Bool {
         if tableView.indexPathsForSelectedRows == nil { return false }
@@ -67,7 +79,7 @@ class MasterViewController: UITableViewController {
                 let object = users[indexPath.row]
 
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                controller.detailItem = (object as! TokensUser)
                 controller.users = users
                 controller.masterController = self
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -87,7 +99,7 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let object = users[indexPath.row]
-        cell.textLabel!.text = object.userName
+        cell.textLabel!.text = (object as! TokensUser).userName as String
         return cell
     }
 
@@ -98,7 +110,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            users.remove(users[indexPath.row])
+            users.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -107,7 +119,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let user = users[indexPath.row]
-        detailViewController?.configureView(user)
+        detailViewController?.configureView((user as! TokensUser))
         detailViewController?.users = users
     }
 

@@ -27,5 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return false
     }
 
+    func applicationDidEnterBackground(application: UIApplication) {
+        //save state here if any,
+        let split = window!.rootViewController as! UISplitViewController
+        let masterNav = split.viewControllers[0] as! UINavigationController
+        let master = masterNav.viewControllers[0]
+        if master is MasterViewController {
+            (master as! MasterViewController).archive()
+        }
+    }
+
 }
 

@@ -9,7 +9,7 @@ class EditUserViewController: UIViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
 
     var user: TokensUser! // Must be configured in prepare for segue
-    var users: Set<TokensUser>! //must be configured in prepare for segue 
+    var users: NSMutableArray! //must be configured in prepare for segue
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +18,8 @@ class EditUserViewController: UIViewController {
 
     func configureView() {
         if user != nil {
-            userNameField.text = user.userName
-            passwordField.text = user.password
+            userNameField.text = user.userName as String
+            passwordField.text = user.password as String
             idLabel.text = user.id.UUIDString
         }
     }
@@ -28,9 +28,9 @@ class EditUserViewController: UIViewController {
     @IBAction func newID(sender: UIButton) {
         let newID = NSUUID()
         idLabel.text = newID.UUIDString
-        users.remove(user)
-        user = TokensUser(userName: user.userName, password: user.password, id: newID, tokens: user.tokens, lastUpdated: NSDate())
-        users.insert(user)
+        users.removeObject(user)
+        user = TokensUser(userName: user.userName as String, password: user.password as String, id: newID, tokens: user.tokens, lastUpdated: NSDate())
+        users.addObject(user)
     }
     @IBAction func backgroundTapped(sender: UITapGestureRecognizer) {
         if userNameField.isFirstResponder() {
@@ -82,11 +82,11 @@ extension EditUserViewController: UITextFieldDelegate {
     }
 
     func updateUser(){
-        users.remove(user)
+        users.removeObject(user)
         user.lastUpdated = NSDate()
         user.userName = userNameField.text!
         user.password = passwordField.text!
-        users.insert(user)
+        users.addObject(user)
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
