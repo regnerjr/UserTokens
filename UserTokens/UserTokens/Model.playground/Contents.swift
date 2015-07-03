@@ -11,7 +11,7 @@ extension NSUUID: CustomDebugStringConvertible {
     }
 }
 
-struct TokensUser: Hashable {
+class TokensUser: NSObject {
     let id: NSUUID
     let userName: String
     let password: String
@@ -25,17 +25,17 @@ struct TokensUser: Hashable {
         self.lastUpdated = lastUpdated
         self.tokens = tokens
     }
-    mutating func addToken(newToken: NSUUID = NSUUID()){
+    func addToken(newToken: NSUUID = NSUUID()){
         tokens.append(newToken)
     }
-    mutating func removeToken(token: NSUUID) {
+    func removeToken(token: NSUUID) {
         tokens = tokens.filter{$0 != token}
     }
-    var hashValue: Int {
+    override var hashValue: Int {
         return "\(id) \(userName)".hashValue
     }
 }
-extension TokensUser: Equatable {}
+
 func ==(lhs: TokensUser, rhs: TokensUser) -> Bool {
     return lhs.id == rhs.id
 }
@@ -103,6 +103,68 @@ users.remove(user0)
 users
 users.insert(user0)
 users
+
+
+func userNameIsUniqueIn(set: NSArray, username: String) -> Bool {
+    if set.count == 0 {
+        return true // is unique
+    }
+    let matches = set.indexesOfObjectsPassingTest({
+    obj, index, stop in
+        let user = obj as! TokensUser
+        user.userName
+        username
+        if user.userName == username {
+            return true
+        }
+        return false
+    })
+    return matches.count == 0
+}
+
+
+
+var arr = NSMutableArray()
+
+let user = TokensUser(userName: "john@john.com", password: "asdfasdf123")
+
+arr.addObject(user)
+
+userNameIsUniqueIn(arr, username: "john@john.co")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
