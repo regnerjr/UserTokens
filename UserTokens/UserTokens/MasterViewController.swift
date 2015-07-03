@@ -16,7 +16,8 @@ extension Set {
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var users = Set<TokensUser>()
+    // TODO: fill this from disk if file exists.
+    var users = Set<TokensUser>() //start off with an empty set for new
 
     var hasSelection : Bool {
         if tableView.indexPathsForSelectedRows == nil { return false }
@@ -48,6 +49,8 @@ class MasterViewController: UITableViewController {
         //display the Add new user sheet.
         modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         let newUserForm = UIStoryboard(name: "NewUser", bundle: nil).instantiateInitialViewController() as! NewUserViewController
+
+
 
         newUserForm.users = users
         newUserForm.presentingController = self

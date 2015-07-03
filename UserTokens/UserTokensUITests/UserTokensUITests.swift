@@ -43,26 +43,41 @@ class UserTokensUITests: XCTestCase {
         //check that done is not enabled
         XCTAssertEqual(app.buttons["Done"].enabled, false)
 
-        password1TextField.tap()
+        password1TextField.doubleTap()
+        let keyboard = app.keyboards.elementAtIndex(0)
+//        keyboard.typeKey(XCUIKeyboardKeyDelete, modifierFlags: XCUIKeyModifierFlags.None)
+
+        app.menuItems["Select All"].tap()
+        app.menuItems["Cut"].tap()
+
+
         password1TextField.typeText("asdfasdf123")
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).tap()
+        app.childrenMatchingType(.Window).elementAtIndex(0)
+            .childrenMatchingType(.Unknown).elementAtIndex(0)
+            .childrenMatchingType(.Unknown).elementAtIndex(0).tap()
         //check that done is enabled
         XCTAssertEqual(app.buttons["Done"].enabled, true)
 
         emailTextField.tap()
         emailTextField.typeText("john") //not a valid email
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).tap()
+        app.childrenMatchingType(.Window).elementAtIndex(0)
+            .childrenMatchingType(.Unknown).elementAtIndex(0)
+            .childrenMatchingType(.Unknown).elementAtIndex(0).tap()
         //check that done button is disabled
         XCTAssertEqual(app.buttons["Done"].enabled, false)
 
         emailTextField.tap()
         emailTextField.typeText("john@john.com") //not a valid email
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).tap()
+        app.childrenMatchingType(.Window).elementAtIndex(0)
+            .childrenMatchingType(.Unknown).elementAtIndex(0)
+            .childrenMatchingType(.Unknown).elementAtIndex(0).tap()
 
         //click done button
         XCUIApplication().toolbars.buttons["Done"].tap()
 
         //check that john@john.com is now in master list
+        let list = app.tables.elementAtIndex(0)
+        let name = list.cells.elementAtIndex(0).staticTexts.elementAtIndex(0)
 
     }
     

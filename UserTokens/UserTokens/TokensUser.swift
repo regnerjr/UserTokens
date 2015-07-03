@@ -1,6 +1,6 @@
 import Foundation
 
-struct TokensUser: Hashable {
+class TokensUser: NSObject {
     let id: NSUUID
     var userName: String
     var password: String
@@ -14,20 +14,19 @@ struct TokensUser: Hashable {
         self.lastUpdated = lastUpdated
         self.tokens = tokens
     }
-    mutating func addToken(newToken: NSUUID = NSUUID()){
+     func addToken(newToken: NSUUID = NSUUID()){
         tokens.append(newToken)
         lastUpdated = NSDate()
     }
-    mutating func removeToken(token: NSUUID) {
+     func removeToken(token: NSUUID) {
         tokens = tokens.filter{$0 != token}
         lastUpdated = NSDate()
     }
-    var hashValue: Int {
-        return "\(id) \(userName)".hashValue
+    override var hashValue: Int {
+        return "\(userName)".hashValue
     }
 }
 
-extension TokensUser: Equatable {}
 func ==(lhs: TokensUser, rhs: TokensUser) -> Bool {
-    return lhs.id == rhs.id
+    return lhs.id == rhs.id && lhs.userName == rhs.userName
 }

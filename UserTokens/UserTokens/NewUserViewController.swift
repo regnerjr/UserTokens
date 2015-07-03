@@ -33,6 +33,7 @@ class NewUserViewController: UIViewController {
     @IBAction func done(sender: UIBarButtonItem) {
         guard let name = emailTextField.text, let pass = passwordTextField.text else { return }
         let newUser = TokensUser(userName: name, password: pass)
+
         users.insert(newUser)
         //pass back the new user too!
         presentingController?.users = users
