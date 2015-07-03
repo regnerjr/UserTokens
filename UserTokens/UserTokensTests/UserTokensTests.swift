@@ -45,7 +45,6 @@ class UserTokensTests: XCTestCase {
         XCTAssert( master.hasSelection == true )
 
         XCTAssert(master.users[0].userName == "john@john.com")
-        XCTAssert(master.users[5].userName == "john@john.com")
         //falls back to returning the first item in the set
 
         master.performSegueWithIdentifier("showDetail", sender: master)
@@ -53,14 +52,5 @@ class UserTokensTests: XCTestCase {
         //assert something here
 
     }
-
-    
-
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measureBlock() {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
 
 }
