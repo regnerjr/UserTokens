@@ -1,11 +1,11 @@
 import Foundation
 
 class TokensUser: NSObject, NSCoding {
-    let id: NSUUID
+    var id: NSUUID
     var userName: NSString
     var password: NSString
     var tokens: [NSUUID]
-    let dateCreated: NSDate
+    var dateCreated: NSDate
     var lastUpdated: NSDate
     init(userName: String, password: String, id: NSUUID = NSUUID(), tokens: [NSUUID] = [],lastUpdated: NSDate = NSDate()){
         self.userName = userName
@@ -15,6 +15,16 @@ class TokensUser: NSObject, NSCoding {
         self.tokens = tokens
         self.dateCreated = NSDate()
     }
+
+    private init(userName: String, password: String, id: NSUUID = NSUUID(), tokens: [NSUUID] = [],lastUpdated: NSDate = NSDate(), created: NSDate = NSDate()){
+        self.userName = userName
+        self.password = password
+        self.id = id
+        self.lastUpdated = lastUpdated
+        self.tokens = tokens
+        self.dateCreated = created
+    }
+
      func addToken(newToken: NSUUID = NSUUID()){
         tokens.append(newToken)
         lastUpdated = NSDate()
@@ -45,17 +55,13 @@ class TokensUser: NSObject, NSCoding {
             let updated = aDecoder.decodeObjectForKey(CodingKeys.lastUpdate.rawValue) as! NSDate?,
             let savedtokens = aDecoder.decodeObjectForKey(CodingKeys.tokens.rawValue) as! Array<NSUUID>?
         {
-            NSLog("Decoding name")
-            NSLog("%@",[aDecoder.decodeObjectForKey(CodingKeys.userName.rawValue)!])
-            NSLog("%@",[aDecoder.decodeObjectForKey(CodingKeys.userName.rawValue) as! NSString])
-
             id = identifier
             userName = name as String
             password = pass as String
             tokens = savedtokens
-
             dateCreated = created
             lastUpdated = updated
+            super.init()
         } else {
             id = NSUUID()
             userName = ""
@@ -63,15 +69,12 @@ class TokensUser: NSObject, NSCoding {
             dateCreated = NSDate()
             lastUpdated = NSDate()
             tokens = [NSUUID]()
+            super.init()
+            return nil
         }
-        super.init()
     }
+    
     func encodeWithCoder(aCoder: NSCoder) {
-        if aCoder is NSKeyedArchiver {
-            let keyed = aCoder as! NSKeyedArchiver
-            keyed.delegate = self
-        }
-        NSLog("Encoding User")
         aCoder.encodeObject(id, forKey: CodingKeys.id.rawValue)
         aCoder.encodeObject(userName, forKey: CodingKeys.userName.rawValue)
         aCoder.encodeObject(password, forKey: CodingKeys.password.rawValue)
@@ -85,19 +88,8 @@ func ==(lhs: TokensUser, rhs: TokensUser) -> Bool {
     return lhs.id == rhs.id && lhs.userName == rhs.userName
 }
 
-extension TokensUser: NSKeyedArchiverDelegate, NSKeyedUnarchiverDelegate {
-
-    func archiver(archiver: NSKeyedArchiver, didEncodeObject object: AnyObject?) {
-        NSLog("Encoded %@", [object!])
+extension TokensUser: NSMutableCopying {
+    func mutableCopyWithZone(zone: NSZone) -> AnyObject {
+        return TokensUser(userName: userName as String, password: password as String, id: id, tokens: tokens, lastUpdated: NSDate(), created: dateCreated)
     }
-    
-    func archiver(archiver: NSKeyedArchiver, willReplaceObject object: AnyObject?, withObject newObject: AnyObject?) {
-        NSLog("Warning: Replacing object %@ with %@", [object!, newObject!])
-    }
-
-    func unarchiver(unarchiver: NSKeyedUnarchiver, didDecodeObject object: AnyObject?) -> AnyObject? {
-        NSLog("Decoded Object %@", [object!])
-        return nil
-    }
-
 }

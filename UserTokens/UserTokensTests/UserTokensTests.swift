@@ -7,6 +7,7 @@ class UserTokensTests: XCTestCase {
     var window: UIWindow!
     var rvc: UISplitViewController!
     var masterNav: UINavigationController!
+    var master: MasterViewController!
 
     override func setUp() {
         super.setUp()
@@ -14,43 +15,28 @@ class UserTokensTests: XCTestCase {
         window = ad.window!
         rvc = window.rootViewController as! UISplitViewController
         masterNav = rvc.viewControllers[0] as! UINavigationController
+        if masterNav.viewControllers.count == 2 {
+            if masterNav.viewControllers[0].dynamicType == UserTokens.MasterViewController {
+                master = masterNav.viewControllers[0] as! MasterViewController
+            } else if masterNav.viewControllers[1].dynamicType == UserTokens.MasterViewController {
+                master = masterNav.viewControllers[1] as! MasterViewController
+            } else {
+                print("MasterNav has \(masterNav.viewControllers.count) VCs")
+                fatalError("MasterViewController Could not be found")
+            }
+        } else if masterNav.viewControllers.count == 1 { // if only one assume it is the masterVC
+            master = masterNav.viewControllers[0] as! MasterViewController
+        }
+
+        master.users = NSMutableArray()
+        master.archive()
 
     }
     
     override func tearDown() {
+        master.users = NSMutableArray()
+        master.archive()
         super.tearDown()
-    }
-    
-    func testMasterVC() {
-        let master = masterNav.topViewController as! MasterViewController
-        XCTAssert(master.hasSelection == false)
-        let addButton = master.navigationItem.rightBarButtonItem!
-        master.insertNewObject(addButton)
-        XCTAssert(master.presentedViewController != nil)
-
-        let addUserVC = master.presentedViewController! as! NewUserViewController
-        addUserVC.emailTextField.text = "john@john.com"
-        addUserVC.textFieldShouldReturn(addUserVC.emailTextField)
-        addUserVC.passwordTextField.text = "asdfasdf123"
-        addUserVC.textFieldShouldReturn(addUserVC.passwordTextField)
-        XCTAssert(addUserVC.doneButton.enabled == true)
-
-        let button = UIBarButtonItem()
-        addUserVC.done(button)
-        XCTAssert(master.users.count > 0 )
-        master.tableView.reloadData()
-        //back to mainVC Select the first item
-        let indexPath = NSIndexPath(forItem: 0, inSection: 0)
-        master.tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Top)
-        XCTAssert( master.hasSelection == true )
-
-        XCTAssert(master.users[0].userName == "john@john.com")
-        //falls back to returning the first item in the set
-
-        master.performSegueWithIdentifier("showDetail", sender: master)
-
-        //assert something here
-
     }
 
 }

@@ -32,6 +32,8 @@ class EditUserViewController: UIViewController {
         user = TokensUser(userName: user.userName as String, password: user.password as String, id: newID, tokens: user.tokens, lastUpdated: NSDate())
         users.addObject(user)
     }
+
+    //tested in UIAutomation
     @IBAction func backgroundTapped(sender: UITapGestureRecognizer) {
         if userNameField.isFirstResponder() {
             checkForEmailConformance()
@@ -83,10 +85,12 @@ extension EditUserViewController: UITextFieldDelegate {
 
     func updateUser(){
         users.removeObject(user)
-        user.lastUpdated = NSDate()
-        user.userName = userNameField.text!
-        user.password = passwordField.text!
-        users.addObject(user)
+        let newUser = user.mutableCopy() as! TokensUser
+        newUser.lastUpdated = NSDate()
+        newUser.userName = userNameField.text!
+        newUser.password = passwordField.text!
+        users.addObject(newUser)
+        user = newUser
     }
 
     func textFieldDidEndEditing(textField: UITextField) {

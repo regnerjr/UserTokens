@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521BF4251B48BFD00096071A /* DetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521BF4241B48BFD00096071A /* DetailVCTests.swift */; };
+		522362491B48DE3800A077D6 /* ManageTokensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522362481B48DE3800A077D6 /* ManageTokensTests.swift */; };
+		5223624B1B48E25700A077D6 /* EditUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223624A1B48E25700A077D6 /* EditUserTests.swift */; };
 		526C0D691B43B05E00092486 /* TokensUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D681B43B05E00092486 /* TokensUser.swift */; };
 		526C0D6B1B43B08600092486 /* TestTokensUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D6A1B43B08600092486 /* TestTokensUser.swift */; };
 		526C0D6D1B44BCB700092486 /* NewUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526C0D6C1B44BCB700092486 /* NewUser.storyboard */; };
@@ -15,6 +18,7 @@
 		526C0D751B44E54800092486 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D741B44E54800092486 /* EditUserViewController.swift */; };
 		526C0D771B44E9D100092486 /* ManageTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D761B44E9D100092486 /* ManageTokensViewController.swift */; };
 		526C0D791B45151400092486 /* NavDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526C0D781B45151400092486 /* NavDelegate.swift */; };
+		527196D41B48292900C37B72 /* MasterVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527196D31B48292900C37B72 /* MasterVCTests.swift */; };
 		528C3F191B45CA1E005A7DBD /* ManageUserTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C3F181B45CA1E005A7DBD /* ManageUserTokens.swift */; };
 		52AA21F11B473261003B56A2 /* NewUserVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AA21F01B473261003B56A2 /* NewUserVCTests.swift */; };
 		52BA90671B436ED700957FEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA90661B436ED700957FEC /* AppDelegate.swift */; };
@@ -45,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		521BF4241B48BFD00096071A /* DetailVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVCTests.swift; sourceTree = "<group>"; };
+		522362481B48DE3800A077D6 /* ManageTokensTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageTokensTests.swift; sourceTree = "<group>"; };
+		5223624A1B48E25700A077D6 /* EditUserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserTests.swift; sourceTree = "<group>"; };
 		526C0D681B43B05E00092486 /* TokensUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokensUser.swift; sourceTree = "<group>"; };
 		526C0D6A1B43B08600092486 /* TestTokensUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTokensUser.swift; sourceTree = "<group>"; };
 		526C0D6C1B44BCB700092486 /* NewUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewUser.storyboard; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 		526C0D741B44E54800092486 /* EditUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		526C0D761B44E9D100092486 /* ManageTokensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageTokensViewController.swift; sourceTree = "<group>"; };
 		526C0D781B45151400092486 /* NavDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavDelegate.swift; sourceTree = "<group>"; };
+		527196D31B48292900C37B72 /* MasterVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterVCTests.swift; sourceTree = "<group>"; };
 		528C3F181B45CA1E005A7DBD /* ManageUserTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageUserTokens.swift; sourceTree = "<group>"; };
 		52AA21F01B473261003B56A2 /* NewUserVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewUserVCTests.swift; path = UserTokensTests/NewUserVCTests.swift; sourceTree = SOURCE_ROOT; };
 		52BA90631B436ED700957FEC /* UserTokens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserTokens.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,9 +150,13 @@
 		52BA907C1B436ED700957FEC /* UserTokensTests */ = {
 			isa = PBXGroup;
 			children = (
+				5223624A1B48E25700A077D6 /* EditUserTests.swift */,
+				521BF4241B48BFD00096071A /* DetailVCTests.swift */,
 				52AA21F01B473261003B56A2 /* NewUserVCTests.swift */,
+				522362481B48DE3800A077D6 /* ManageTokensTests.swift */,
 				526C0D6A1B43B08600092486 /* TestTokensUser.swift */,
 				52BA907D1B436ED700957FEC /* UserTokensTests.swift */,
+				527196D31B48292900C37B72 /* MasterVCTests.swift */,
 				52BA907F1B436ED700957FEC /* Info.plist */,
 			);
 			path = UserTokensTests;
@@ -307,9 +319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522362491B48DE3800A077D6 /* ManageTokensTests.swift in Sources */,
 				52AA21F11B473261003B56A2 /* NewUserVCTests.swift in Sources */,
 				526C0D6B1B43B08600092486 /* TestTokensUser.swift in Sources */,
+				527196D41B48292900C37B72 /* MasterVCTests.swift in Sources */,
+				5223624B1B48E25700A077D6 /* EditUserTests.swift in Sources */,
 				52BA907E1B436ED700957FEC /* UserTokensTests.swift in Sources */,
+				521BF4251B48BFD00096071A /* DetailVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

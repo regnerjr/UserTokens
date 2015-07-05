@@ -1,17 +1,17 @@
 import UIKit
 
-extension Set {
-    subscript(position: Int) -> T {
-        var index = startIndex
-        let dist = distance(startIndex, endIndex)
-        if dist < position {
-            for var i = 0; i < position; ++i {
-                index = index.successor()
-            }
+struct Archive {
+    static var path: String? {
+        let documentsDirectories = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documentDirectory = documentsDirectories.first
+        if let dir = documentDirectory {
+            let documentPath = dir + "/items.archive"
+            return documentPath
         }
-        return self[startIndex]
+        return nil
     }
 }
+
 
 class MasterViewController: UITableViewController {
 
@@ -27,7 +27,6 @@ class MasterViewController: UITableViewController {
     }()
 
     func archive(){
-        print("Archiving Users \(users):\(users.dynamicType) to path \(Archive.path!) ")
         NSKeyedArchiver.archiveRootObject(users, toFile: Archive.path!)
     }
 
@@ -56,23 +55,18 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
+    //Tested By UIAutomation
     func insertNewObject(sender: AnyObject) {
 
         //display the Add new user sheet.
         modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         let newUserForm = UIStoryboard(name: "NewUser", bundle: nil).instantiateInitialViewController() as! NewUserViewController
-
-
-
         newUserForm.users = users
         newUserForm.presentingController = self
-
         presentViewController(newUserForm, animated: true, completion: nil)
-
     }
 
     // MARK: - Segues
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -112,9 +106,7 @@ class MasterViewController: UITableViewController {
         if editingStyle == .Delete {
             users.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        } 
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

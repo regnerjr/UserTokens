@@ -5,14 +5,12 @@ class ManageTokensViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
 
     var user: TokensUser! //to be filled in before VC is presented
-//    var users: Set<TokensUser>! //to be filled in before VC is presented
 
     @IBOutlet weak var userNameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameLabel.text = user?.userName.description
-        print(user)
     }
 
     
@@ -21,7 +19,7 @@ class ManageTokensViewController: UIViewController, UITableViewDataSource, UITab
         tableView.reloadData()
     }
 
-    //MARK: - Navigation
+    //MARK: - Navigation  //Tested in UIAutomation
     @IBAction func done(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -45,10 +43,7 @@ class ManageTokensViewController: UIViewController, UITableViewDataSource, UITab
         if editingStyle == .Delete {
             user.tokens.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
-
     }
 
 }

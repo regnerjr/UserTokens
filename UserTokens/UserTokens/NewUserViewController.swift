@@ -1,11 +1,5 @@
 import UIKit
 
-enum UserPasswordErrors: String {
-    case usernameNotUnique = "UserName must be unique"
-    case passwordNotEightChars = "Password must be longer than Eight Characters"
-    case passwordHasNoDigit = "Password must contain a Number"
-}
-
 class EmailTextField: UITextField {}
 class PasswordTextField: UITextField {}
 
@@ -14,12 +8,8 @@ class NewUserViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var doneButton: UIBarButtonItem!
 
-    @IBOutlet weak var emailTextField: EmailTextField!{
-        didSet{ /*unhide and set error string if applicable*/ }
-    }
-    @IBOutlet weak var passwordTextField: PasswordTextField!{
-        didSet{ /*unhide and set error string if applicable*/ }
-    }
+    @IBOutlet weak var emailTextField: EmailTextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
 
     weak var presentingController: MasterViewController?
 
@@ -30,10 +20,14 @@ class NewUserViewController: UIViewController {
         doneButton.enabled = false
     }
 
+
+
+
+
+    //Tested With UIAutomation
     @IBAction func done(sender: UIBarButtonItem) {
         guard let name = emailTextField.text, let pass = passwordTextField.text else { return }
         let newUser = TokensUser(userName: name, password: pass)
-
         users.addObject(newUser)
         //pass back the new user too!
         presentingController?.users = users
@@ -41,10 +35,12 @@ class NewUserViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    //Tested with UIAutomation
     @IBAction func cancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    //Tested With UIAutomation
     @IBAction func tapGesture(sender: UITapGestureRecognizer) {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
@@ -80,9 +76,10 @@ func isPasswordValid(password: String?)->Bool{
 
 func isUserNameValid(set: NSArray, email: String?) -> Bool{
     guard let emailString = email else { return false }
-    return userNameIsUniqueIn(set, username: emailString) && userNameIsEmail(emailString)
+    let unique = userNameIsUniqueIn(set, username: emailString)
+    let isEmail = userNameIsEmail(emailString)
+    return unique && isEmail
 }
-
 
 extension NewUserViewController: UITextFieldDelegate {
 

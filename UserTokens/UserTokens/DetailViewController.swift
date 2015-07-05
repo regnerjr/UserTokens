@@ -44,7 +44,10 @@ class DetailViewController: UIViewController {
                 tokensView.text = ""
             }
 
-        guard let creation = user?.dateCreated, updated = user?.lastUpdated else { return }
+        guard let creation = user?.dateCreated, updated = user?.lastUpdated
+        else {
+            return
+        }
             createdLabel.text = dateFormatter.stringFromDate(creation)
             updatedlabel.text = dateFormatter.stringFromDate(updated)
         }
@@ -60,7 +63,7 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    // Tested by UIAutomation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ManageTokens" {
             let destination = segue.destinationViewController as! ManageTokensViewController
@@ -72,8 +75,8 @@ class DetailViewController: UIViewController {
         }
     }
 
-    @IBAction func unwindToDetailView(sender: UIStoryboardSegue)
-    {
+    // Tested By UIAutomation
+    @IBAction func unwindToDetailView(sender: UIStoryboardSegue){
         if let sourceViewController = sender.sourceViewController as? EditUserViewController {
         // Pull any data from the view controller which initiated the unwind segue.
             detailItem = sourceViewController.user
@@ -82,7 +85,6 @@ class DetailViewController: UIViewController {
             masterController?.tableView.reloadData()
         } else if let sourceViewController = sender.sourceViewController as? ManageTokensViewController {
             detailItem = sourceViewController.user
-
             masterController?.tableView.reloadData()
         }
     }

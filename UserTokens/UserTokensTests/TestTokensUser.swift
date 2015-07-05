@@ -22,7 +22,7 @@ class TestTokensUser: XCTestCase {
     }
 
     func testTokens(){
-        var newUser = TokensUser(userName: "John", password: "Password")
+        let newUser = TokensUser(userName: "John", password: "Password")
         XCTAssertEqual(newUser.tokens.count, 0)
         newUser.addToken()
         XCTAssertEqual(newUser.tokens.count, 1)
@@ -30,7 +30,7 @@ class TestTokensUser: XCTestCase {
     }
 
     func testTokenRemoval(){
-        var newUser = TokensUser(userName: "John", password: "Password")
+        let newUser = TokensUser(userName: "John", password: "Password")
 
         newUser.addToken()
         let token = newUser.tokens[0]
@@ -57,6 +57,14 @@ class TestTokensUser: XCTestCase {
         //set should ensure only one user using hash conformance
         set.insert(newUser)
         XCTAssert(set.count == 1)
+    }
+
+    func testInitWithInValidCoder(){
+        let string = "Hello"
+        let data = NSKeyedArchiver.archivedDataWithRootObject(string)
+        let coder = NSKeyedUnarchiver(forReadingWithData: data)
+        let invalid = TokensUser(coder: coder as NSCoder)
+        XCTAssertNil(invalid)
     }
 
 }

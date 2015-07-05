@@ -41,7 +41,7 @@ class ManageUserTokens: XCTestCase {
         app.tables.staticTexts["john@john.com"].tap()
         app.buttons["ManageTokens"].tap()
 
-        XCUIApplication().buttons["AddNewToken"].tap()
+        app.buttons["AddNewToken"].tap()
 
         //assert new token has been added to the table
         XCTAssertEqual(app.tables.cells.count, 1)
